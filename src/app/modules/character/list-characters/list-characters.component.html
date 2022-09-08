@@ -1,0 +1,51 @@
+
+<div class="container" style="text-align: center; margin-top: 20px; padding-bottom: 20px;">
+    <div class="row gy-3">
+        <div class="col-12">
+            <app-loading-spinner></app-loading-spinner>
+        </div>
+        <div *ngFor="let character of characters" class="col-sm-12 col-md-6 col-lg-4">
+             <!-- [style]="{'width':'15rem'}" -->
+             <app-card [titleHeader]="character.name" [titleSubHeader]="character.class" [imageUrl]="'assets/knight.jpg'">
+                <p-tabView>
+                    <p-tabPanel >
+                        <ng-template pTemplate="header">
+                            <div class="flex-container-column">
+                                <p-avatar image="assets/att-icon.png" styleClass="mr-2"></p-avatar>
+                                <p>Attributes</p>
+                            </div>      
+                        </ng-template>
+                        <p-tag  severity="danger">HP: {{character.hitPoints}}</p-tag>
+                        <p-tag severity="warning">Strenght: {{character.strength}}</p-tag>
+                        <p-tag severity="success">Defense: {{character.defense}}</p-tag>
+                        <p-tag>Intelligence: {{character.intelligence}}</p-tag>
+                    </p-tabPanel>
+                    <p-tabPanel>
+                        <ng-template pTemplate="header">
+                            <div class="flex-container-column">
+                                <p-avatar image="assets/sword-icon.png" styleClass="mr-2"></p-avatar>
+                                <p>Weapons</p>
+                            </div>      
+                        </ng-template>
+                        <p *ngIf="character.weapon !== null"><b>Name:</b> {{character.weapon.name}} <b>Damage:</b> {{character.weapon.damage}}</p>
+                        <p *ngIf="character.weapon == null"><b>No weapon added yet</b></p>
+                    </p-tabPanel>
+                    <p-tabPanel>
+                        <ng-template pTemplate="header">
+                            <div class="flex-container-column">
+                                <p-avatar image="assets/skill-icon.png" styleClass="mr-2"></p-avatar>
+                                <p>Skills</p>
+                            </div>
+                        </ng-template>
+                        <ng-container *ngIf="character.skills.length > 0">
+                            <p *ngFor="let skill of character.skills"><b>Name:</b> {{skill.name}} <b>Damage:</b> {{skill.damage}}</p>
+                        </ng-container>   
+                        <p *ngIf="character.skills.length == 0"><b>No skills added yet</b></p>
+                    </p-tabPanel>
+                </p-tabView>
+                
+             </app-card>
+        </div>
+    </div>
+</div>
+

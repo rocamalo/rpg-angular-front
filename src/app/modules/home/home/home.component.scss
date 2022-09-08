@@ -1,0 +1,16 @@
+:host ::ng-deep .p-menubar {
+    position: sticky;
+    position: -webkit-sticky; // Needed for Safari browsers.
+    z-index: 10000; // This prevents elements to be seen through the toolbar.
+    top: 0; // Required for "position: sticky" to take effect.
+    border-radius: 0px;
+}
+
+:host ::ng-deep .p-avatar{
+    vertical-align: bottom;
+}
+
+
+.clickable-class {
+    cursor: pointer;
+}

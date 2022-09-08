@@ -1,0 +1,13 @@
+<p-menubar [model]="items">
+    <ng-template pTemplate="start">
+        <img routerLink="/home" src="assets/sword-logo.png" height="40" class="mr-2 clickable-class">
+    </ng-template>
+    <div>
+        <p-avatar *ngIf="profileImgPath$ | async as profileImgPath " routerLink="/home/profile" [image]="profileImgPath" styleClass="mr-2" size="large" shape="circle" class="clickable-class"></p-avatar>
+        <button (click)="logout()" type="button" pButton label="Logout" icon="pi pi-power-off" style="margin-left:.25em"></button>
+    </div>
+</p-menubar>
+
+<router-outlet></router-outlet>
+
+<app-footer></app-footer>

@@ -1,0 +1,30 @@
+
+     <p-toast  [style]="{'width':'15rem'}"></p-toast> <!--we define width for responsiveness -->
+
+<div class="wrapper">
+    <div class="container">
+        <p-card header="Login">
+            <form [formGroup]="loginForm" class="example-form" (ngSubmit)="login()">
+            <span class="p-float-label">
+                <input formControlName="username" id="float-username" type="text" pInputText aria-describedby="username2-help">  
+                <label for="float-username">Username</label>
+            </span>
+            <div *ngIf="loginForm.get('username')?.hasError('required') && loginForm.get('username')?.touched">
+                <small id="username2-help" class="p-error block">Username is required.</small>
+            </div>
+            <span class="p-float-label" style="margin-top: 25px;">
+                <p-password formControlName="password" aria-describedby="password2-help" styleClass="p-password p-component p-inputwrapper p-input-icon-right" [style]="{'width':'100%'}" [inputStyle]="{'width':'100%'}" id="float-password" [feedback]="false" [toggleMask]="true"></p-password>
+                <label for="float-password">Password</label>  
+            </span>
+            <div *ngIf="loginForm.get('password')?.hasError('required')">
+                <small id="password2-help" class="p-error block">Password is required.</small>
+            </div>
+            <p-button class="mt-3 mb-3" type="submit" label="Submit"></p-button>
+            </form>
+            <a routerLink="/auth/register">Don't have an account?</a>
+        </p-card>
+        
+    </div>
+</div>
+
+

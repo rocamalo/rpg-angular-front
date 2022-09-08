@@ -1,0 +1,11 @@
+<p-card header="{{titleHeader}}" subheader="{{titleSubHeader}}"  styleClass="p-card-shadow" [style]="{'max-width':'360px'}">
+    <ng-template pTemplate="header">
+        <img alt="Card" [src]="imageUrl" style="width: 100px;">
+    </ng-template>
+     <ng-content></ng-content> <!--here goes everything customizable for our card -->
+    
+    <ng-template pTemplate="footer">
+        <p-button label="Update" icon="pi pi-sync"></p-button>
+        <p-button label="Delete" icon="pi pi-ban" styleClass="p-button-danger" [style]="{'margin-left': '.5em'}"></p-button>
+    </ng-template>
+</p-card>
